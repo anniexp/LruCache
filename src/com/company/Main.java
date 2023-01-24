@@ -36,5 +36,16 @@ public class Main {
         System.out.println(res2);
         res2.addElement('F');
         System.out.println(res2); //E(4), F(6), C(2), D(5)
+
+        LruCache<Integer> res3 = new LruCache(3);
+        res3.addElement(1);
+        System.out.println(res3);
+        res3.addElement(2);
+        System.out.println(res3);
+        res3.addElement(3);
+        System.out.println(res3);
+        res3.get(0);
+        System.out.println(res3);
+
     }
 }

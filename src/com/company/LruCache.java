@@ -1,10 +1,11 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
- * @author anniexp
  * @param <T> - generic type
+ * @author anniexp
  */
 public class LruCache<T> {
     private final static int CACHE_DEFAULT_SIZE = 3;
@@ -52,6 +53,20 @@ public class LruCache<T> {
         pos++;
         count++;
     }
+
+    /**
+     * @param pos index of element in cache
+     * @return current element at position pos
+     */
+    public T get(int pos) {
+        if (pos < 0 || pos >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        ageBits[pos] = count++;
+
+        return elements[pos];
+    }
+
 
     /**
      * @return least recent element
